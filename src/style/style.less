@@ -16,6 +16,7 @@ html * {
 html,
 body {
   font-family: sans-serif;
+  overflow: hidden;
 }
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
 body,
@@ -322,6 +323,7 @@ body{
     .g-1,.g-2,.g-3{
         position: absolute;
         width: 100%;
+       
     }
     .g-1{
         top: 4.6%;
@@ -359,25 +361,53 @@ body{
 .cjing{
     opacity: 0;
     z-index: 100;
+    transform:scale(1.5,1.5) ;
+    -webkit-transform:scale(1.5,1.5) ;
+    
     transition: all 0.5s ease 0s;
+    -webkit-transition:all 0.5s ease 0s ;
+    
     &.active{
-        opacity: 1;
+        opacity: 1;    
+        -webkit-transform:scale(1,1) ;
+        transform:scale(1,1) ;
+         transition: all 0.5s ease 0s;
         z-index: 100;
+         -webkit-animation-name:mohu;  
+        -webkit-animation-duration:4s;
+        -webkit-animation-iteration-count:infinite; 
+        -webkit-animation-delay:2s;
+        animation-name:mohu;
+        animation-duration:4s;
+        animation-iteration-count:infinite;
+        animation-delay:2s;
+
+
     }
+}
+@-webkit-keyframes mohu{  
+    0%,100% { -webkit-filter: blur(0); }
+	  50% { -webkit-filter: blur(1px); }
+      
+} 
+@keyframes mohu{  
+   0%,100% { -webkit-filter: blur(0);  }
+   50% { -webkit-filter: blur(1px); }
+      
 }
 #level1,#level2,#level3{
     background-size: cover !important; 
 }
 #level1{
-    background: url(../img/scene-1.png) no-repeat ;
+    background: url(../img/scene-1.jpg) no-repeat ;
     z-index: 30;
 }
 #level2{
-    background: url(../img/scene-2.png) no-repeat;
+    background: url(../img/scene-2.jpg) no-repeat;
      z-index: 20;
 }
 #level3{
-    background: url(../img/scene-3.png)no-repeat;
+    background: url(../img/scene-3.jpg)no-repeat;
      z-index: 10;
 }
 
@@ -390,6 +420,7 @@ body{
     right: 0;
     bottom: 0;
     width: 100%;
+    overflow: hidden;
     background: url(../img/first-bg.png) 0 0;
     background-size: cover;
     z-index:20 ;
@@ -446,6 +477,12 @@ body{
         color: #fff;
         font-size: 0.4rem;
         background-color: transparent;
+        outline: #fff solid 2px;
+        outline-offset: 2px;
+    
+        -webkit-animation-duration: 2s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
         -webkit-tap-highlight-color:rgba(255,255,255,0.5);
     }
    
@@ -459,7 +496,7 @@ body{
     width: 100%;
     background: url(../img/first-bg.png) 0 0;
     background-size: cover;
-    overflow: scroll;
+    overflow: hidden;
     z-index:10;
     .logo{
         width: 100%;
@@ -552,51 +589,149 @@ body{
       
 }
  
+@-webkit-keyframes spin {
+    from { transform: rotate(0deg) scale(1.2,1.2);-webkit-transform: rotate(0deg) scale(1.2,1.2);  }
+    to { transform: rotate(360deg) scale(1.2,1.2); -webkit-transform: rotate(360deg) scale(1.2,1.2);}
+} 
+@keyframes spin {
+    from { transform: rotate(0deg) scale(1.2,1.2);-webkit-transform: rotate(0deg) scale(1.2,1.2);  }
+    to { transform: rotate(360deg) scale(1.2,1.2); -webkit-transform: rotate(360deg) scale(1.2,1.2);}
+}
 //sucessBox
 
 .mask{
    
     z-index: 1000;
     background-color: rgba(0,0,0,0.4);
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    display: none;
+    
+    display:none;
     .sucessBox{
-        display: inline-block;
+        position: absolute;
+        top: 15.15%;
+        bottom:  15.15%;
+        left:11.5% ;
+        right: 11.5%;
         background-color: #fff;
         border-radius: 10px;
         border:3px dashed #48dd56;
+        overflow: hidden;
+        -webkit-animation-delay:0;
         h2{
-            font-size: 0.5rem;
-            padding:0.2rem 0.3rem ;
-            border-bottom: 1px solid #cccccc;
+            position: absolute;
+            width: 100%;
+            top: 5.58%;
+            left: 0;
+            text-align: center;
+            font-size: 0.6rem;
             color: #48dd56;
             text-align: center;
-            display: none;
+              display: none;
+             -webkit-animation-delay:1s;   
         }
-        .sheosPic{
-            width: 5.6rem;
-            img{
+        p{
+            position: absolute;
+            top: 14.66%;
+            width: 100%;
+             color: #48dd56;
+            text-align: center;
+            -webkit-animation-delay:1.5s;   
+        }
+        .bg{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+           
+            top: 50%;
+            margin-top: -50%;
+             -webkit-animation-delay:0.3s;   
+            .inner{
                 width: 100%;
+                padding-bottom: 100%;
+                background: url(../img/show-bg.png) center center;
+                background-size: cover;
+                -webkit-animation-name: spin; 
+                -webkit-animation-duration: 40000ms; /* 40 seconds */
+                -webkit-animation-iteration-count: infinite; 
+                -webkit-animation-timing-function: linear;
+                animation-name: spin; 
+                animation-duration: 40000ms; /* 40 seconds */
+                animation-iteration-count: infinite; 
+                animation-timing-function: linear;
             }
         }
-        .next{
-            padding-bottom: 0.3rem;
+        .sheosPic{
+            position: absolute;
+            -webkit-animation-delay:0.5s;
+            top: 34%;
+            width: 100%;
+            height:26% ;
+            img{
+                display: block;
+                margin: 0 auto;
+                height: 100%;
+            }
+        }
+        .next{          
+            position: absolute;
+            top:83% ; 
+            width: 100%;
             text-align: center;
-            button{
-                background-color: #48DD56;
-                padding: 0.2rem;
-                border: 1px solid #48DD56;
+            -webkit-animation-delay:2s;          
+            button{               
+                background-color: #ff9a38;
+                padding: 0.3rem 0.8rem;
+                border:none;
                 color: #fff;
-                border-radius: 2px;
-                 display: none;
-                 font-size: 0.3125rem;
-                 -webkit-tap-highlight-color:darken(#48DD56,10%);
+                border-radius: 8px;
+                box-shadow:0 3px 1px #cc7117 ;
+                //display: none;
+                font-size: 0.3125rem;
+                -webkit-tap-highlight-color:darken(#ff9a38,10%);
                 &:active,&:hover,&:visited{
-                    background-color: darken(#48DD56,10%);
+                    background-color: darken(#ff9a38,10%);
                 }
+            }
+        }
+        .star{
+            position: absolute;
+            background:url(../img/star.png) 0 0;
+            background-size: cover; 
+            &.s1{
+                width: 1rem;
+                height: 1rem;
+                top: 17.3%;
+                left: 27.2%;
+            }
+            &.s2{
+                width: 0.6rem;
+                height: 0.6rem;
+                top: 26.55%;
+                left: 18.4%;
+            }
+            &.s3{
+                width: 0.3rem;
+                height: 0.3rem;
+                top: 38.96%;
+                right: 21.94%;
+            }
+            &.s4{
+                width: 0.3rem;
+                height: 0.3rem;
+                top: 60.25%;
+                left: 21.28%;
+            }
+            &.s5{
+                width: 0.8rem;
+                height: 0.8rem;
+                top: 67.62%;
+                left:51.6%;
+            }
+            &.s6{
+                width: 0.8rem;
+                height: 0.8rem;
+                top: 63.65%;
+                left:75.93%;
             }
         }
     }

@@ -3,11 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>易拉变·新概念鞋子，颠覆传统就在此刻</title>
-		<script src="lib/flexible.js" type="text/javascript" charset="utf-8"></script>
-		<script src="lib/pace.min.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="style/loading.css"/>		
-		<link rel="stylesheet" type="text/css" href="style/style.css?v=002"/>
-		<link rel="stylesheet" type="text/css" href="style/animate.css"/>
+		<script src="js/init.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="style/main.css"/>		
 	</head>
 	<body>
 		<div id="firstPage" class="fullpage">
@@ -18,7 +15,7 @@
 				<img src="img/f2.png"/>
 			</div>
 			<div id="f3">
-				<iframe id="video" style="height: 100%;" src="http://player.youku.com/embed/XMzA0NDYwMTg0" frameborder=0 allowfullscreen></iframe>
+				<iframe id="video" style="height: 100%;" src="http://player.youku.com/embed/XMTQ4NzQwMzQyNA==" frameborder=0 allowfullscreen></iframe>
 			</div>
 			<div id="f4">颠覆传统，就在此刻</div>
 			<div id="f5">
@@ -38,10 +35,11 @@
 				<div><img src="img/ewm-2.png"/></div>
 			</div>
 			<div id="s4">
-				<button id="play" class="animated pulse">免费申领</button>
+				<button id="play" type="button" class="animated pulse">免费申领</button>
 			</div>
 		</div>
 		<div id="scene" class="scene">
+			
 			<div id="level1" class="cjing">
 				<div class="g-1">
 					<img src="img/f1.png"/>
@@ -85,14 +83,23 @@
 		
 		<div id="mask" class="mask">
 			<div class="sucessBox">
-				<h2 class="rough">Bingo!回答正确</h2>
+				<div class="bg"><div class="inner"></div></div>
+				<h2 class="rough">BINGO!</h2>
 				<h2 class="complete">过关成功</h2>
+				<p>易拉变新概念鞋，颠覆传统就在此刻</p>
 				<div class="sheosPic">
 				</div>
 				<div class="next">
-					<button  class="nextBtn rough">点击进入下一关</button>
-					<button  class="nextBtn complete">参与抽奖</button>
-				</div>			
+					<button type="button" class="nextBtn rough">点击进入下一关</button>
+					<button type="button" class="nextBtn complete">参与抽奖</button>
+				</div>
+				<div class="star s1"></div>
+				<div class="star s2"></div>
+				<div class="star s3"></div>
+				<div class="star s4"></div>
+				<div class="star s5"></div>
+				<div class="star s6"></div>
+				<div class="star s7"></div>
 			</div>
 		</div>
 		
@@ -118,7 +125,7 @@
 				</div>
 			</div>
 			<div class="submit">
-				<button id="submit">免费申领</button>
+				<button id="submit" class="animated pulse" type="button">免费申领</button>
 				<p>您所提交的信息将用于发送奖品使用</p>
 			</div>
 		</div>
@@ -142,21 +149,17 @@
 				<p>&nbsp;<br />&nbsp;<br />&nbsp;</p>
 			</div>
 		</div>
-		<script src="js/isWeiXin.js"></script>
-		<script src="lib/zepto.js?v=003" type="text/javascript" charset="utf-8"></script>
-		<script src="lib/touch.js?v=001" type="text/javascript" charset="utf-8"></script>	
-		<script src="lib/fx.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			document.ontouchmove = function(e){ e.preventDefault(); };
 			$("#rule").on("touchmove",function(e){
 				e.stopPropagation();
 			})
 		</script>
-		<script src="js/first.js?v=003" type="text/javascript" charset="utf-8"></script>
-		<script src="js/game.js?v=003" type="text/javascript" charset="utf-8"></script>
-		<script src="js/form.js?v=003" type="text/javascript" charset="utf-8"></script>
-	
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="js/wx.js"></script>
+		<script src="js/first.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/form.js" type="text/javascript" charset="utf-8"></script>
+		
 	</body>
 </html>

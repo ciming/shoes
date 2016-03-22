@@ -6,19 +6,21 @@
 	    img.src = url;
 	};
 	for(i=1;i<7;i++){
-		imgLoad("img/"+i+"-a.jpg");
-		imgLoad("img/"+i+"-b.jpg");
+		imgLoad("img/"+i+"-a.png");
+		imgLoad("img/"+i+"-b.png");
 	}
 	for(i=1;i<7;i++){
 		imgLoad("img/s-u-"+i+".png");
 	}
 })()
-;(function(window){
+
 	
+$(function(){
 	
+
 	
-	var winWidth=$("#game").width();
-	var winHeight=$("#game").height();
+	var winWidth=(window.innerWidth > 0) ? window.innerWidth : screen.width;
+	var winHeight=(window.innerHeight > 0) ? window.innerHeight : screen.height;;
 	
 	var Game=function(){
 		this.shoesUpArry={};
@@ -90,7 +92,6 @@
 			&&(currY>shoesDownA._y-shoesDownA.radius)
 			&&(currY<shoesDownA._y+shoesDownA.radius)){
 				if(this.isRgiht(obj)){
-					console.log(obj)
 					showModal(obj.sheosID+"-"+shoesDownA.sheosID)
 				}else{
 					shoesDownA.wrong();
@@ -178,7 +179,7 @@
 	game.addUpSheos(1,[shoesUp_1,shoesUp_2,shoesUp_4,shoesUp_3]);
 	game.addUpSheos(2,[shoesUp_1,shoesUp_4,shoesUp_3,shoesUp_6]);
 	game.addUpSheos(3,[shoesUp_1,shoesUp_2,shoesUp_4,shoesUp_3]);
-	Pace.on("done",function(){
+	$(function(){
 		game.next();
 	})
 	touch.on(".nextBtn","tap hold doubletap",function(e){
@@ -187,9 +188,11 @@
 	})
 	//弹窗
 	function showModal(picName){
-		$("#mask").css("display","-webkit-box");
-		$("#mask").find(".sheosPic").html("<img src='img/"+picName+".jpg'/>")
-		$("#mask").find(".sucessBox").addClass("animated zoomIn");
+		$("#mask").show();
+		$("#mask").find(".sheosPic").html("<img src='img/"+picName+".png'/>")
+		$("#mask").find(".sucessBox").addClass("animated bounceIn");
+		$("#mask").find(".bg").addClass("animated fadeIn");
+		
 		if(game.level<=2){
 			$("#mask").find(".rough").show();
 			$("#mask").find(".complete").hide();
@@ -197,11 +200,15 @@
 			$("#mask").find(".rough").hide();
 			$("#mask").find(".complete").show();
 		}
+		$("#mask").find("h2").addClass("animated fadeInDown");
+		$("#mask").find("p").addClass("animated fadeInDown");
+		$("#mask").find(".next").addClass("animated fadeInDown");
+		$("#mask").find(".sheosPic").addClass("animated zoomIn");
 	}
 	function hideModal(picName){
 		$("#mask").hide();
 		$("#mask").find(".sucessBox").removeClass("animated zoomIn");
 	}
 	
-})(window)
+})
 

@@ -19,7 +19,7 @@ var mAlert=(function(){
 			this.el.addClass("animated zoomIn");
 			setTimeout(function(){
 				self.el.hide();
-				this.el.removeClass("animated zoomIn");
+				self.el.removeClass("animated zoomIn");
 			},2000)
 		}	
 	}
@@ -28,7 +28,6 @@ var mAlert=(function(){
 		if(instance === undefined){
 			instance = new AlertBox();
 		}
-		console.log(instance)
 		instance.setInfo(info);
 		return instance;
 	}
@@ -56,7 +55,7 @@ $(function(){
 				}else if(data=="0001"){
 					mAlert("信息不能为空");
 				}else if(data="0000"){
-					mAlert("消息提交成功");
+					mAlert("抽奖信息提交成功");
 					$("#form").animate({
 						opacity: 0,
 						translate3d: '0,-100%,0'

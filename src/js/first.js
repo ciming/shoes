@@ -2,8 +2,10 @@ document.body.addEventListener('touchstart', function (ev) {
     
 });
 //videosize
-Zepto(function($){
-	var videoHeight=$("#f3").height();
+$(function(){
+	var wHeight=(window.innerHeight > 0) ? window.innerHeight : screen.height;
+	var videoHeight=$(window).height()*0.288;
+	$("#video").height(videoHeight);
 	$("#video").width((videoHeight*16)/9);
 	
 	touch.on("#play","tap hold doubletap",function(e){
@@ -20,16 +22,10 @@ var firstPageLoad=function(){
 	
 }
 
-Pace.options={
-	ajax: false,
-}
-Pace.on("done",function(){
-	
-})
 
 
 //touch
-;(function(){
+$(function(){
 	
 	var firstPage=$("#firstPage");
 		beginY=0;
@@ -47,9 +43,8 @@ Pace.on("done",function(){
 			$(this).css('z-index',2);
 		})
 	})
-	
-})()
 
+})
 //animi
 Pace.on("done",function(){
 	$("#f1").addClass("animated fadeInDown");
